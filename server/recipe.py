@@ -23,7 +23,7 @@ class GetRecipe(Resource):
 
         print(res)
 
-        return res
+        return li
     
 
     def post(self):
