@@ -14,7 +14,7 @@ class RecipeDao:
         pass
     
     def getRecipe(self):
-        ret = {}
+        ret = []
         db = pymysql.connect(host=host, user=id, db=Database, password=pw, charset='utf8')
         curs = db.cursor()
         
