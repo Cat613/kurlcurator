@@ -9,11 +9,11 @@ id = ppt['DB']['id']
 pw = ppt['DB']['pw']
 Database = ppt['DB']['Database']
 
-class RecipeDao:
+class UserDao:
     def __init__(self):
         pass
     
-    def getRecipe(self):
+    def getUser(self):
         ret = {}
         db = pymysql.connect(host=host, user=id, db=Database, password=pw, charset='utf8')
         curs = db.cursor()
@@ -30,7 +30,7 @@ class RecipeDao:
         db.close()
         return ret
     
-    def insRecipe(self, CLIENT_ID,CLIENT_PW,CLIENT_NICK,CLIENT_SEX,CLIENT_BIRTH,CLIENT_HEIG,CLIENT_WEIG,FRIDGE_ID,DIARY_ID,NUTST_ID,CLINET_ACTIV_ID):
+    def insUser(self, CLIENT_ID,CLIENT_PW,CLIENT_NICK,CLIENT_SEX,CLIENT_BIRTH,CLIENT_HEIG,CLIENT_WEIG,FRIDGE_ID,DIARY_ID,NUTST_ID,CLINET_ACTIV_ID):
         db = pymysql.connect(host=host, user=id, db=Database, password=pw, charset='utf8')
         curs = db.cursor()
         
@@ -39,7 +39,7 @@ class RecipeDao:
         db.commit()
         db.close()
     
-    def updRecipe(self, CLIENT_ID,CLIENT_PW,CLIENT_NICK,CLIENT_SEX,CLIENT_BIRTH,CLIENT_HEIG,CLIENT_WEIG,FRIDGE_ID,DIARY_ID,NUTST_ID,CLINET_ACTIV_ID): 
+    def updUser(self, CLIENT_ID,CLIENT_PW,CLIENT_NICK,CLIENT_SEX,CLIENT_BIRTH,CLIENT_HEIG,CLIENT_WEIG,FRIDGE_ID,DIARY_ID,NUTST_ID,CLINET_ACTIV_ID): 
         db = pymysql.connect(host=host, user=id, db=Database, password=pw, charset='utf8')
         curs = db.cursor()
         
@@ -48,11 +48,11 @@ class RecipeDao:
         db.commit()
         db.close()
 
-    def delRecipe(self, CLIENT_ID):
+    def delUser(self, CLIENT_ID):
         db = pymysql.connect(host=host, user=id, db=Database, password=pw, charset='utf8')
         curs = db.cursor()
         
-        sql = "delete from CLIENT_MAIN where RECIPE_ID=%s"
+        sql = "delete from CLIENT_MAIN where User_ID=%s"
         curs.execute(sql,CLIENT_ID)
         db.commit()
         db.close()
@@ -61,5 +61,5 @@ if __name__ == '__main__':
     #MyEmpDao().insEmp('aaa', 'bb', 'cc', 'dd')
     #MyEmpDao().updEmp('aa', 'dd', 'dd', 'aa')
     #MyEmpDao().delEmp('aaa')
-    RecipeList = RecipeDao().getRecipe();
-    print(RecipeList)
+    UserList = UserDao().getUser();
+    print(UserList)

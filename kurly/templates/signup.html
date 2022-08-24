@@ -25,42 +25,63 @@ table, th, td{
         <th>키</th>
         <th>몸무게</th>
 	</tr>
-		{% for emp in empList%}
+		{% for user in userList%}
 		<tr>
 			<td>
 				<a href="javascript:fn_detail(
-				'{{emp.empno}}','{{emp.name}}','{{emp.department}}','{{emp.phone}}'
-				)">{{emp.empno}}</a>
+				'{{user.CLIENT_ID}}','{{user.CLIENT_PW}}','{{user.CLIENT_NICK}}','{{user.CLIENT_SEX}}','{{user.CLIENT_BIRTH}}','{{user.CLIENT_HEIG}}','{{user.CLIENT_WEIG}}'
+				)">{{user.CLIENT_ID}}</a>
 			</td>
-			<td>{{emp.name}}</td>
-			<td>{{emp.department}}</td>
-			<td>{{emp.phone}}</td>
+			<td>{{user.CLIENT_PW}}</td>
+			<td>{{user.CLIENT_NICK}}</td>
+			<td>{{user.CLIENT_SEX}}</td>
+			<td>{{user.CLIENT_BIRTH}}</td>
+			<td>{{user.CLIENT_HEIG}}</td>
+			<td>{{user.CLIENT_WEIG}}</td>
 		</tr>
 		{% endfor %}
 </table><br/>
 <table>
 	<tr>
-		<th>사번</th>
+		<th>ID</th>
 		<td>
-			<input type="text" id="empno">
+			<input type="text" id="CLIENT_ID">
 		</td>
 	</tr>
 	<tr>
-		<th>이름</th>
+		<th>PW</th>
 		<td>
-			<input type="text" id="name">
+			<input type="text" id="CLIENT_PW">
 		</td>
 	</tr>
 	<tr>
-		<th>부서</th>
+		<th>별명</th>
 		<td>
-			<input type="text" id="department">
+			<input type="text" id="CLIENT_NICK">
 		</td>
 	</tr>
 	<tr>
-		<th>전화번호</th>
+		<th>성별</th>
 		<td>
-			<input type="text" id="phone">
+			<input type="text" id="CLIENT_SEX">
+		</td>
+	</tr>
+	<tr>
+		<th>생년월일</th>
+		<td>
+			<input type="text" id="CLIENT_BIRTH">
+		</td>
+	</tr>
+	<tr>
+		<th>키</th>
+		<td>
+			<input type="text" id="CLIENT_HEIG">
+		</td>
+	</tr>
+	<tr>
+		<th>몸무게</th>
+		<td>
+			<input type="text" id="CLIENT_WEIG">
 		</td>
 	</tr>
 	<tr>
@@ -73,15 +94,22 @@ table, th, td{
 </table>
 <script>
 	function fun_add(){
-		const empno = document.getElementById("empno").value
-		const name = document.getElementById("name").value
-		const department = document.getElementById("department").value
-		const phone = document.getElementById("phone").value
+		const ID = document.getElementById("CLIENT_ID").value
+		const PW = document.getElementById("CLIENT_PW").value
+		const nick = document.getElementById("CLIENT_NICK").value
+		const sex = document.getElementById("CLIENT_SEX").value
+		const birth = document.getElementById("CLIENT_BIRTH").value
+		const hei = document.getElementById("CLIENT_HEIG").value
+		const wei = document.getElementById("CLIENT_WEIG").value
+		
 		var param = {
-			'empno' : empno,
-			'name' : name,
-			'department' : department,
-			'phone' : phone
+			'CLIENT_ID' : ID,
+			'CLIENT_PW' : PW,
+			'CLIENT_NICK' : nick,
+			'CLIENT_SEX' : sex,
+			'CLIENT_BIRTH' : birth,
+			'CLIENT_HEIG' : hei,
+			'CLIENT_WEIG' : wei
 		}
 		
 		$.ajax({
